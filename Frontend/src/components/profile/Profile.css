@@ -172,3 +172,26 @@
   color: #27ae60;
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  /* .profile-content {
+    flex-direction: column;  
+    align-items: center;
+    text-align: center;
+  } */
+
+  .profile-left,
+  .profile-right {
+    width: 100%;
+  }
+
+  .profile-photo {
+    margin: 0 auto;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
