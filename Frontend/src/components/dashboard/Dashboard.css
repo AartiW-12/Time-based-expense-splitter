@@ -1,0 +1,140 @@
+.dashboard {
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #EBF4DD;
+}
+.dashboard-header h1{
+    margin-top: 10px;
+}
+.create-group-btn{
+    margin-top: 20px;
+}
+
+.dashboard-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom:  20px;
+    color: #2f3e34;
+    text-shadow: 
+      1px 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.group-list {
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.group-card {
+    min-width: 220px;
+    padding: 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.9) ;
+    border: 1px solid rgba(90, 120, 99, 0.3);
+    box-shadow:
+      0 6px 16px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: 
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background-color 0.25s ease;
+}
+.group-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    background-color: #f7fbf2;
+    box-shadow:
+      0 16px 32px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.group-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2f3e34;
+}
+
+.group-card p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #4a5f54;
+}
+
+.create-btn {
+    margin-top: 22px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #5a7863, #3f5d4a);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    align-self: center;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 8px 18px rgba(63, 93, 74, 0.35);
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease;
+}
+
+.create-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(63, 93, 74, 0.5);
+}
+
+@media (max-width: 600px) {
+    .group-card {
+        min-width: 90%;
+    }
+
+    .dashboard-title {
+        font-size: 22px;
+    }
+}
+.empty-groups {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #7f8c8d;
+}
+
+.group-details {
+  margin-top: 0.5rem;
+}
+
+.group-details p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+}
+
+.user-share {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.created-date {
+  font-size: 0.85rem;
+  color: #95a5a6;
+}
+
+.summary-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #2f3e34;
+}
+
+.summary-card:hover{
+     background-color: #f7fbf2;;
+}

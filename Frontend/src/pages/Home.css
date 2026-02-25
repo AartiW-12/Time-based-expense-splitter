@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c3ceb1;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 50px 60px;
+  border-radius: 20px;
+  text-align: center;
+  color: #34473a;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.app-name {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 15px;
+  opacity: 0.85;
+  margin-bottom: 30px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 35px;
+  font-size: 15px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn {
+  padding: 12px 38px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* background-color: #5a7863; */
+}
+
+.login {
+    background-color: transparent;
+  color: #5a7863;
+  border: 2px solid #fff;
+}
+
+.login:hover {
+  color: #fcfcfc;
+  transform: translateY(-3px);
+}
+
+.signup {
+  background:#5a7863;;
+  color: #fff;
+}
+
+.signup:hover {
+  background: #5a7863;
+  transform: translateY(-3px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

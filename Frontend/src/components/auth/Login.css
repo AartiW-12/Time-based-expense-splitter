@@ -1,0 +1,88 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #EBF4DD, #f8fafc);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+.login-div {
+  width: 360px;
+  padding: 30px;
+  background: #EBF4DD;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border: 2px solid #cbd5f5;
+}
+
+.login-div label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #475569;
+}
+
+.login-div input {
+  background-color: #eeefec;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.login-div input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.button {
+  min-width: 140px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #5A7863;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:first-child {
+  background: transparent;
+  color: #5A7863;
+  border: 1px solid #5A7863;
+}
+
+.button:first-child:hover {
+  background: #5A7863;
+  color: white;
+}
+
+.err-div{
+  margin-top: 10px;
+  text-align: center;
+  width: 360px;
+}
+.error {
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 600;
+}

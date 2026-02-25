@@ -1,0 +1,174 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Card */
+.userinfo-card,
+.financial-card,
+.paid-by-others-card,
+.expense-breakdown-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+  margin-bottom: 1.5rem;
+}
+
+/* Layout */
+.profile-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.profile-left {
+  flex: 1;
+}
+
+.profile-right {
+  flex: 2;
+}
+
+/* Profile Photo */
+.profile-photo-wrapper input {
+  display: none;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plus {
+  font-size: 2rem;
+  color: #999;
+}
+
+/* User Info */
+.username {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.email {
+  color: #777;
+  margin-bottom: 1rem;
+}
+
+.stats p {
+  margin: 0.5rem 0;
+}
+
+/* Net Balance Colors */
+.net-balance {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.positive {
+  color: #27ae60;
+}
+
+.negative {
+  color: #e74c3c;
+}
+
+.neutral {
+  color: #7f8c8d;
+}
+
+/* Edit Form */
+.edit-profile label {
+  display: block;
+  margin-top: 0.8rem;
+  font-weight: 500;
+}
+
+.edit-profile input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+.buttons{
+  gap : 10px;
+}
+/* Button */
+.edit-profile-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-btn{
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  background: #3498db;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+  background: #2980b9;
+}
+.logout-btn:hover {
+  background: #2980b9;
+}
+.all-expenses-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  margin-bottom: 1.5rem;
+}
+
+.expense-item {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+}
+
+.expense-header {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.expense-details p {
+  margin: 0.3rem 0;
+}
+
+.expense-owe {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.expense-receive {
+  color: #27ae60;
+  font-weight: bold;
+}
