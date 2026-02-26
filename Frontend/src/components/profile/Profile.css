@@ -4,11 +4,12 @@
   padding: 2rem 1rem;
 }
 
-/* Card */
+/* Cards */
 .userinfo-card,
 .financial-card,
 .paid-by-others-card,
-.expense-breakdown-card {
+.expense-breakdown-card,
+.all-expenses-card {
   background: white;
   border-radius: 12px;
   padding: 1.5rem;
@@ -16,7 +17,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.profile-title {
+.profile-title,
+.section-title {
   margin-bottom: 1.5rem;
 }
 
@@ -78,17 +80,9 @@
   font-size: 1.1rem;
 }
 
-.positive {
-  color: #27ae60;
-}
-
-.negative {
-  color: #e74c3c;
-}
-
-.neutral {
-  color: #7f8c8d;
-}
+.positive { color: #27ae60; }
+.negative { color: #e74c3c; }
+.neutral { color: #7f8c8d; }
 
 /* Edit Form */
 .edit-profile label {
@@ -104,11 +98,16 @@
   border: 1px solid #ccc;
   border-radius: 6px;
 }
-.buttons{
-  gap : 10px;
+
+/* Buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-/* Button */
-.edit-profile-btn {
+
+.edit-profile-btn,
+.logout-btn {
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
   border: none;
@@ -118,34 +117,12 @@
   cursor: pointer;
 }
 
-.logout-btn{
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  border: none;
-  background: #3498db;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.edit-profile-btn:hover {
-  background: #2980b9;
-}
+.edit-profile-btn:hover,
 .logout-btn:hover {
   background: #2980b9;
 }
-.all-expenses-card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-top: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
-.section-title {
-  margin-bottom: 1.5rem;
-}
-
+/* Expense Items */
 .expense-item {
   padding: 1rem;
   margin-bottom: 1rem;
@@ -172,26 +149,63 @@
   color: #27ae60;
   font-weight: bold;
 }
+
+/* ========================= */
+/* ✅ RESPONSIVE SECTION */
+/* ========================= */
+
 @media (max-width: 768px) {
-  /* .profile-content {
-    flex-direction: column;  
-    align-items: center;
-    text-align: center;
-  } */
+
+  .profile-container {
+    padding: 1rem;
+  }
+
+  /* Stack profile vertically */
+  .profile-content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
   .profile-left,
   .profile-right {
     width: 100%;
   }
 
-  .profile-photo {
-    margin: 0 auto;
+  .profile-left {
+    text-align: center;
   }
 
+  .profile-photo {
+    margin: 0 auto 1rem auto;
+  }
+
+  .username {
+    font-size: 1.3rem;
+  }
+
+  /* Reduce card padding */
+  .userinfo-card,
+  .financial-card,
+  .paid-by-others-card,
+  .expense-breakdown-card,
+  .all-expenses-card {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Buttons full width */
   .buttons {
-    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+  }
+
+  .edit-profile-btn,
+  .logout-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  /* Prevent overflow issues */
+  body {
+    overflow-x: hidden;
   }
 }
