@@ -74,73 +74,85 @@ export default function CreateGroup() {
     const { addGroup } = useGroups();
 
     // Add validation before saving
-function handleSaveGroup() {
+    function handleSaveGroup() {
+
     if (!groupName) return alert("Group name required");
+    if (!user) return alert("User not logged in");
     if (!paidBy) return alert("Paid By required");
     if (totalExpense <= 0) return alert("Invalid expense");
-    
-    if (members.some(m => !m.name.trim())) {
-      return alert("All members must have names");
-    }
-    
-    if (timelySplit === "timely" && members.some(m => !m.time || m.time <= 0)) {
-      return alert("All members must have time used");
-    }
 
-    // ✅ Check if current user is in the members list
-    const currentUserInMembers = members.some(m => 
-      m.name.toLowerCase().trim() === user?.name.toLowerCase().trim()
+    // Remove empty member names
+    const validMembers = members.filter(m => m.name.trim() !== "");
+
+    // Check if logged-in user already added (case-insensitive)
+    const isUserAlreadyAdded = validMembers.some(
+        m => m.name.trim().toLowerCase() === user.username.toLowerCase()
     );
 
-    // ✅ Prepare members with proper userId
-    const groupMembers = members.map((m) => {
-      // If this member's name matches current user, use their real userId
-      const isCurrentUser = m.name.toLowerCase().trim() === user?.name.toLowerCase().trim();
-      
-      return {
-        userId: isCurrentUser ? user.userId : generateMemberId(Math.random()),  // Generate temp ID for others
-        name: m.name.trim(),
-        timeUsed: timelySplit === "timely" ? Number(m.time) : null
-      };
-    });
+    // Add logged-in user automatically if not present
+    const updatedMembers = isUserAlreadyAdded
+        ? validMembers
+        : [
+            ...validMembers,
+            { name: user.username, time: timelySplit === "timely" ? 1 : null }
+        ];
 
-    // ✅ If current user not in members, add them automatically
-    if (!currentUserInMembers && user) {
-      const currentUserTime = timelySplit === "timely" 
-        ? prompt(`Enter your time used in ${getTimeUnit()}:`) 
-        : null;
-      
-      groupMembers.push({
-        userId: user.userId,
-        name: user.name,
-        timeUsed: timelySplit === "timely" ? Number(currentUserTime) : null
-      });
+    // Minimum 2 members check (including logged-in user)
+    if (updatedMembers.length < 2) {
+        return alert("Group must have at least 2 members");
     }
 
+    // Timely validation
+    if (
+        timelySplit === "timely" &&
+        updatedMembers.some(m => !m.time || m.time <= 0)
+    ) {
+        return alert("All members must have valid time used");
+    }
+
+    // Paid By validation
+    const isValidPayer = updatedMembers.some(
+        m => m.name.trim().toLowerCase() === paidBy.trim().toLowerCase()
+    );
+
+    if (!isValidPayer) {
+        return alert("Paid By must be one of the group members");
+    }
+
+    // Create final member list with proper userId handling
+    const groupMembers = updatedMembers.map((m, index) => ({
+        userId:
+            m.name.trim().toLowerCase() === user.username.toLowerCase()
+                ? user.userId                // ✅ logged-in user's real ID
+                : generateMemberId(index),  // ✅ other members dummy ID
+        name: m.name.trim(),
+        timeUsed: timelySplit === "timely" ? Number(m.time) : null
+    }));
+
     const newGroup = {
-      _id: generateGroupId(),
-      groupName,
-      groupType,
-      splitType: timelySplit,
-      timeUnit: getTimeUnit(),
-      createdAt: new Date().toISOString(),
-      members: groupMembers,
-      expenses: [
-        {
-          expenseId: generateExpenseId(),
-          description: "Initial Expense",
-          totalAmount: totalExpense,
-          paidBy,
-          expenseDate: new Date().toISOString()
-        }
-      ]
+        _id: generateGroupId(),
+        groupName,
+        groupType,
+        splitType: timelySplit,
+        timeUnit: getTimeUnit(),
+        createdBy: user.userId,   // ✅ correct field
+        createdAt: new Date().toISOString(),
+        members: groupMembers,
+        expenses: [
+            {
+                expenseId: generateExpenseId(),
+                description: "Initial Expense",
+                totalAmount: totalExpense,
+                paidBy,
+                expenseDate: new Date().toISOString()
+            }
+        ]
     };
 
-    console.log("Creating group:", newGroup);
     addGroup(newGroup);
     setIsSaved(true);
     setTimeout(() => resetFields(), 2000);
-  }
+}
 
 
     return (

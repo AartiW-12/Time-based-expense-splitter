@@ -11,7 +11,7 @@ export default function Profile() {
 
   const [isEditingProfile, setIsEditingProfile] = useState(false);
   const [profileInfo, setProfileInfo] = useState({
-    name: user?.name || "Guest",
+    name: user?.fullName || user?.username || "Guest",
     email: user?.email || "",
     profile_photo: null,
     phoneNo: ""
@@ -21,7 +21,7 @@ export default function Profile() {
     if (user) {
       setProfileInfo(prev => ({
         ...prev,
-        name: user.name,
+        name: user.fullName || user.username, 
         email: user.email
       }));
     }
