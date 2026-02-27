@@ -1,7 +1,7 @@
 
 import Dashboard from './components/dashboard/Dashboard.jsx'
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes , Navigate } from 'react-router-dom'
 import Navbar from './components/common/Navbar.jsx'
 import CreateGroup from './components/group/create-group/CreateGroup.jsx'
 import GroupDetails from './components/group/group-details/GroupDetails.jsx'
