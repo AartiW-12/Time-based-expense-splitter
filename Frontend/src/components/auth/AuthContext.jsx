@@ -17,8 +17,15 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         const storedUser = localStorage.getItem('smartSplit-user')
         if (storedUser) {
+            const parsed = JSON.parse(storedUser)
+
+            const normalizedUser = {
+                ...parsed,
+                fullName: parsed.fullName || parsed.name,
+                userId : parsed.userId.toLowerCase()
+            }
             // eslint-disable-next-line react-hooks/set-state-in-effect
-            setUser(JSON.parse(storedUser))
+            setUser(normalizedUser)
             setIsAuthenticated(true)
         }
         setAuthReady(true)
