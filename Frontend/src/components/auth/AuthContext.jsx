@@ -7,6 +7,7 @@ export function AuthProvider({ children }) {
 
     const [user, setUser] = useState(null);
     const [isAuthenticated, setIsAuthenticated] = useState(false)
+    const [authReady, setAuthReady] = useState(false);
 
     function generateUserId(name) {
         console.log("Username : ", name)
@@ -20,8 +21,10 @@ export function AuthProvider({ children }) {
             setUser(JSON.parse(storedUser))
             setIsAuthenticated(true)
         }
+        setAuthReady(true)
     }, [])
 
+    
     const login = (email, password) => {
 
         let currentEmail = "aartiwhaval12@gmail.com"
@@ -75,6 +78,9 @@ export function AuthProvider({ children }) {
         localStorage.removeItem('smartSplit-status')
     }
 
+    if(!authReady) {
+        return null;
+    }
     return (
         <AuthContext.Provider value={{ user, isAuthenticated, login, signUp, logout }}>
             {children}

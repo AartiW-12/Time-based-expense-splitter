@@ -14,6 +14,7 @@ import Contact from './pages/Contact.jsx'
 import { useAuth } from './components/auth/AuthContext.jsx'
 
 function ProtectedRedirect({ children }) {
+  // 
   const { isAuthenticated } = useAuth()
   return isAuthenticated ? <Navigate to="/dashboard" replace /> : children
 }

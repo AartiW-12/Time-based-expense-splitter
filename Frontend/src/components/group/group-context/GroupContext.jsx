@@ -96,7 +96,6 @@ export function GroupsProvider({ children }) {
 
   function fetchUserGroups(userId) {
     try {
-      // ✅ Filter only groups where logged-in user exists
       const userGroups = dummyGroups.filter(group =>
         group.members.some(member => member.userId === userId)
       );
